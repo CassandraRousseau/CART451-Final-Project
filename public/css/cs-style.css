@@ -1,0 +1,56 @@
+body{
+  font-family: 'Tilt Neon', sans-serif;
+
+}
+h3{
+  margin-left:35%;
+  margin-top:3vh;
+  color:rgb(119, 0, 0);
+}
+#responseA{
+  color:#ffffff;
+}
+ul{
+  color:#ffffff;
+}
+.findData{
+  color:#ffffff;
+  font-family: 'Tilt Neon', sans-serif;
+  background-color:#ff7575;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type='text']{
+  font-size: 20px;
+  font-family: 'Tilt Neon', sans-serif;
+  }
+    #parentContainer{
+        width:100%;
+        background: #eeeeee;
+        margin-top:2%;
+        padding:20px;
+    
+      }
+      
+      .searchDiv{
+        background:rgb(119, 0, 0);
+        border: 1px solid  #ff7575;
+        width:80%;
+        padding:1%;
+        height:min-content;
+      }
+     .searchDiv p {
+        color:#ffffff;
+        width:80%;
+        font-size:18px;
+
+      }
+ 
+
