@@ -72,7 +72,7 @@ async function run() {
       //   link:0,
       // category:0,
       // },},
-      { $limit : 10 },
+      { $limit : 5 },
 ];
 
 let filteredResults = await videos.aggregate(pipeline)
