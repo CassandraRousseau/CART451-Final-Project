@@ -24,7 +24,7 @@ async function run() {
     await client.db("admin").command({ping:1});
     console.log("success");
     const db =  client.db("CART451_Final_Project");
-    const videos =  db.collection("data", {
+    const videos =  db.collection("videos", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
       
         
@@ -65,13 +65,13 @@ async function run() {
 
 //   // **6** Filter the art and music video category by displaying only the videos with less or equal than 400 subscribers on the channel, and only display their title and descriptions
   const pipeline = [ 
-    {$match: {Released:""}},
-      {$sort:{Views:-1}},
-      {$project:{
-        // _id:0,
-        // link:0,
-      Transcript:0,
-      },},
+    // {$match: {UploadYear:2015}},
+      {$sort:{viewCount:-1}},
+      // {$project:{
+      //   _id:0,
+      //   link:0,
+      // category:0,
+      // },},
       { $limit : 10 },
 ];
 
