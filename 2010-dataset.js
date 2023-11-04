@@ -19,81 +19,20 @@ const client = new MongoClient(uri, {});
 
 async function run() {
   try {
+     // Connecting to MongoDB
     await client.connect();
-      // A:
     await client.db("admin").command({ping:1});
     console.log("success");
+        // Accessing the dataset
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("Youtube_videos_more_than_1Billion_views", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
-      
-        
-
-//     // **1** Count the number of input in the collection
-//     const estimate = await videos.estimatedDocumentCount();
-//     console.log(`Estimated number of documents in the videos collection: ${estimate}`);
-    
-//     // **2** Display all the data in the console
-// let results = await videos.find({}).toArray();
-// console.log(results);
-
-
-// //**3** Retrieves the data from the history category and only display their title 
-// // Retrieves data
-//     const yt_video = "title";
-//     // Specify an optional query document to narrow results
-//     const content = { category: "history" };
-//     // Execute the distinct operation
-//     const distinctValues = await videos.distinct(yt_video, content);
-
-//     // Print the result
-//     console.log(distinctValues);
-
-    
-// // **4**Only find videos with subscribers over 100
-// const documentsToFind = {upload_date:"2020"}
-// let resultat = videos.find(documentsToFind);
-// let docCount = videos.countDocuments(documentsToFind);
-// await resultat.forEach((doc)=>console.log(doc))
-// console.log('Found ${await docCount} documents')
-
-// // **5** Find the video with the specific inserted id
-// const document = {_id: new ObjectId("65246667d654716acf8a431e")}
-// let answer = await videos.findOne(document)
-// console.log("Found document")
-// console.log(answer)
-
-  // **6** Filter the art and music video category by displaying only the videos with less or equal than 400 subscribers on the channel, and only display their title and descriptions
-//   const pipeline = [ 
-//     {$match: {Category:"Non-Musical", UploadYear:2010}},
-//       // {$sort:{description:1}},
-//       // {$project:{
-//       //   _id:0,
-//       //   link:0,
-//       // category:0,
-//       // },},
-// ];
-
-// let filteredResults = await videos.aggregate(pipeline)
-// for await (const doc of filteredResults){
-// console.log(doc);
-// console.log("art achieved");
-// };
-// // **7** Find the food category videos, sort in alphabetical order the results, and limit the results to 5 videos
+   
+//Find the videos released in 2010 that have over a billion views,only the ten videos with the most views appear in the results
 const neededDocuments = {UploadYear:2010}
 let foundResults = await videos.find(neededDocuments).sort({'video views':1}).limit(10);
 await foundResults.forEach((doc)=>console.log(doc));
-console.log('Found ${await docCounting} documents');
-
-
-// //**8**Find one video according to the inputed data categories
-// const options = {
-
-//   projection: {'description':1, 'category':1}
-// }
-// let isInGroup = await videos.findOne({'category':{$in:["beauty","vlogs", "travel", "food"]}}, options)
-// console.log(isInGroup);
-// // in try 
+// in try 
   }
 catch (error) {
     console.error("error::");
