@@ -29,7 +29,7 @@ async function run() {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
       const pipeline = [ 
         {$sort:{views: -1}},
-        { $limit : 5 },
+        { $limit : 7 },
   ];
   
   let filteredResults = await videos.aggregate(pipeline)

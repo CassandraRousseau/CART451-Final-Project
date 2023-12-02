@@ -25,11 +25,11 @@ async function run() {
     console.log("success");
         // Accessing the dataset
     const db =  client.db("CART451_Final_Project");
-    const videos =  db.collection("vidsDataAfter", {
+    const videos =  db.collection("AI_ML_YT_Videos", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
       const pipeline = [ 
-        {$sort:{views: -1}},
-        { $limit : 3 },
+        {$sort:{Views: -1}},
+        { $limit : 5 },
   ];
   
   let filteredResults = await videos.aggregate(pipeline)
