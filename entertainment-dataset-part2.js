@@ -25,7 +25,7 @@ async function run() {
     console.log("success");
         // Accessing the dataset
     const db =  client.db("CART451_Final_Project");
-    const videos =  db.collection("youtube", {
+    const videos =  db.collection("MrBeast_youtube_stats", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
       const pipeline = [ 
         {$sort:{viewCount:-1}},

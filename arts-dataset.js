@@ -28,8 +28,8 @@ async function run() {
     const videos =  db.collection("youtube", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
       const pipeline = [ 
-        {$match:{category:'travel'}},
-        { $limit : 5 },
+        {$match:{category:'art_music'}},
+        { $limit : 100 },
   ];
   
   let filteredResults = await videos.aggregate(pipeline)
