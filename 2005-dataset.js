@@ -22,12 +22,12 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-    // Accessing the dataset
+    // Accessing the 2005 dataset
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("youtube_dataset", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
    
-// Find the videos with views over 32 500 000, sorts the results in alphabetical order, and limit the results to 10 videos
+// Find the videos with views over 32 500 000 released in 2005, sorts the results in alphabetical order, and limit the results to 10 videos
 const neededDocuments = {views:{$gt:32500000}}
 let foundResults = await videos.find(neededDocuments).sort({title:1}).limit(10);
 await foundResults.forEach((doc)=>console.log(doc));

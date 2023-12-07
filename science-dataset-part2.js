@@ -23,8 +23,9 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the ChatGPT dataset with all the videos released about AI before its launch
     const db =  client.db("CART451_Final_Project");
+    // Filtering the three most viewed videos about AI before the existence of ChatGPT
     const videos =  db.collection("vidsDataBefore", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
       const pipeline = [ 

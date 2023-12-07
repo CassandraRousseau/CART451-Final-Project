@@ -23,10 +23,11 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the AI and ML dataset
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("AI_ML_YT_Videos", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
+      // Filtering the 5 most viewed videos about AI and ML
       const pipeline = [ 
         {$sort:{Views: -1}},
         { $limit : 5 },

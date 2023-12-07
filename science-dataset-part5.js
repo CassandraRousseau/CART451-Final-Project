@@ -23,10 +23,11 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the data science videos dataset
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("data-science-youtube-channel-videos-metadata", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
+      // Filtering the 7 most viewed videos within the science and technology category
       const pipeline = [ 
         {$match:{videoCategoryLabel:'Science & Technology'}},
         {$sort:{viewCount: -1}},

@@ -23,12 +23,12 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the PewDiePie dataset
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("pewdiepie", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
   
-  // Filter the videos by order of publication, only the 10 first videos published appear in the results 
+  // Filter the 10 most viewed videos on PewDiePie channel
   const pipeline = [ 
       {$sort:{viewCount:-1}},
       { $limit : 20 },

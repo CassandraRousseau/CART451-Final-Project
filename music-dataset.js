@@ -23,7 +23,7 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the dataset with the 14 most viewed YouTube videos
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("Top-14-Ever-Most-Viewed-YouTube-Videos", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});

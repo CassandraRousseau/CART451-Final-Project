@@ -23,12 +23,12 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the dataset gathering videos over a billion views
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("Youtube_videos_more_than_1Billion_views", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
    
-//Find the videos released in 2010 that have over a billion views,only the ten videos with the most views appear in the results
+//Find the most viewed videos in the non-musical category
 const neededDocuments = {Category:'Non-Musical'}
 let foundResults = await videos.find(neededDocuments).sort({'video views':1});
 await foundResults.forEach((doc)=>console.log(doc));

@@ -23,7 +23,7 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the dataset gathering videos over a billion views
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("Youtube_videos_more_than_1Billion_views", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});

@@ -23,10 +23,11 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the dataset with 3400 YouTube videos
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("youtube", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
+      // Find 100 videos within the arts and music category
       const pipeline = [ 
         {$match:{category:'art_music'}},
         { $limit : 100 },

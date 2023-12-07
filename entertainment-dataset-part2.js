@@ -23,10 +23,11 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the MrBeast dataset
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("MrBeast_youtube_stats", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
+      // Find the ten most viewed videos on MrBeast channel
       const pipeline = [ 
         {$sort:{viewCount:-1}},
         { $limit : 10 },

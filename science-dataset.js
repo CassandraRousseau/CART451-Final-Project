@@ -23,10 +23,11 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset
+        // Accessing the TED Talks dataset
     const db =  client.db("CART451_Final_Project");
     const videos =  db.collection("TED", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
+      // Filtering the 7 most viewed TED Talks videos 
       const pipeline = [ 
         {$sort:{views: -1}},
         { $limit : 7 },
