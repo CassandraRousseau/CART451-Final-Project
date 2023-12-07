@@ -28,7 +28,7 @@ async function run() {
     const videos =  db.collection("pewdiepie", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
   
-  // Filter the 10 most viewed videos on PewDiePie channel
+  // Filter the 20 most viewed videos on PewDiePie channel
   const pipeline = [ 
       {$sort:{viewCount:-1}},
       { $limit : 20 },
