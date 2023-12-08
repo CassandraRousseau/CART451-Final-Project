@@ -1,4 +1,6 @@
 # CART451-Final-Project
-CART451's semester project
+CART451's final project - YT
 
-To access the videos for 2005, 2010, 2015, 2020 ()
+YT is a video installation project exploring YouTube culture and discovering its visual and audio patterns throughout four categories: Arts & Crafts, Science, Music, and Vlogs & Entertainment. Each category had its video, containing 25 collected videos from various datasets related to their category, resulting in a total of 100 videos displayed in this video series. The viewers confront the overstimulating apophenia of saturated colours, cacophonous audios, and fast-paced YouTube content. 
+
+Multiple elements contributed to the realization of the project. MongoDB, MongoDB Atlas, VS Code, Git LFS, Node.js, Adobe Premiere Pro and Tartube are all the platforms, software, engines and extensions used for YT. The datasets used for the project were Youtube Oldest Videos (2005) Dataset, All PewDiePie Videos, Youtube videos having more than 1 Billion views, Top 14 Ever Most Viewed YouTube Videos, Data of YouTube Videos, TED Talk | Youtube, AI/ML Youtube Videos, ChatGPT – Youtube Data, Mr Beast Youtube Video Statistics, Data Science YouTube channels Video Metadata, YouTube Videos Dataset (~3400 videos). All the datasets used for the project come from the open-source platform Kaggle. 
