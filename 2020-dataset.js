@@ -23,16 +23,14 @@ async function run() {
     await client.connect();
     await client.db("admin").command({ping:1});
     console.log("success");
-        // Accessing the dataset gathering videos over a billion views
+        // Accessing the 2020 dataset
     const db =  client.db("CART451_Final_Project");
-    const videos =  db.collection("Youtube_videos_more_than_1Billion_views", {
+    const videos =  db.collection("2020", {
       collation: { locale: "fr_CA",  numericOrdering: true,},});
-    
-//Find the videos released in 2020 that have over a billion views, only the three videos with the most views appear in the results
-const neededDocuments = {UploadYear:2020}
-let foundResults = await videos.find(neededDocuments).sort({'video views':1}).limit(3);
+  //Find ten videos with views over 100 000 released in 2020
+const neededDocuments = {view:{$gt:100000}}
+let foundResults = await videos.find(neededDocuments).sort({view:-1}).limit(10);
 await foundResults.forEach((doc)=>console.log(doc));
-
 // in try 
   }
 catch (error) {
